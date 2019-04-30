@@ -53,8 +53,8 @@ awk -v "debug=${DEBUG}" \
        # FIXME: change script to allow for comps that are not in this
        # list. For those, simply do them in any order afterwards. Otherwise
        # this list will need to be updated when new RAPIDS comps are added.
-       split("rmm custrings cudf cuml cugraph xgboost dask-xgboost dask-cudf dask-cuda", buildorder)
-       for (i in buildorder) {
+       n = split("rmm custrings cudf cuml cugraph xgboost dask-xgboost dask-cudf dask-cuda", buildorder)
+       for ( i = 1; i <= n; i++ ) {
           comp = buildorder[i]
           if (comp in rapidscomps) {
              script = utilsDir "/build-" comp ".sh"

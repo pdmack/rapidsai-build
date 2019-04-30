@@ -20,10 +20,10 @@ CONFIG_FILE_NAME=${RAPIDSDEVTOOL_DIR}/config
 
 # TODO: check that each of the dirs referenced in vars exist
 
-if [ `which podman` != "" ]; then
+if [[ $(type -P podman) ]]; then
     DOCKER=podman
 else
-    DOCKER=nvidia-docker
+    DOCKER=docker
 fi
 
 TIMESTAMP=$(date "+%Y%m%d%H%M%S")
